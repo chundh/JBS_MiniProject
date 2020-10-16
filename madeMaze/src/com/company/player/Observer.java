@@ -1,4 +1,4 @@
-package com.company;
+package com.company.player;
 
 abstract class Observer {
     protected Player player;

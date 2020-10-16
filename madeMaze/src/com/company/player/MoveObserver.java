@@ -1,4 +1,4 @@
-package com.company;
+package com.company.player;
 
 public class MoveObserver extends Observer{
     public MoveObserver(Player player){

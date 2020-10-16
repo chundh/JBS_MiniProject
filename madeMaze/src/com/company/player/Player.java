@@ -1,4 +1,4 @@
-package com.company;
+package com.company.player;
 
 public class Player {
     private int x;

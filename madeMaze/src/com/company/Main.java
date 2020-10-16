@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.map.map;
+import com.company.player.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
