@@ -1,0 +1,46 @@
+@startuml
+class map{
+- boolean[][] check;
+- int[][] map;
+- int[] dx = {1,0,-1,0};
+- int[] dy = {0,1,0,-1};
+- int n;
+- int m;
++ int[][] createMap()
+- int[][] dfs(int[][] map, int x, int y, int cnt)
+- boolean checkRange(int x, int y)
+- boolean checkFour(int x, int y)
+}
+
+class Player{
+- Observer observer
+- String name;
+- int x;
+- int y;
+- int count;
+
++ void changePosition(int idx) // 0~3 남,동,북,서
++ int getX()
++ int getY()
++ int setX()
++ int setY()
++ int getCount()
++ int setCount()
++ void mapUpdate()
++ Observer를 위한 함수들
+}
+
+class Observer{
+- Player player;
++ abstract void update();
+}
+
+class PlayerObserver extends Observer{
+    public PlayerObserver(Player player)
+    public void update()
+}
+
+class Main{
+
+}
+@enduml
