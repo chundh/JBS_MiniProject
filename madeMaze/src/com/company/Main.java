@@ -10,6 +10,7 @@ public class Main {
     static int[][] myMap;
     public static void main(String[] args) {
         myMap = map.createMap();
+        Player player = new Player("asdf", myMap);
         View view = new View(myMap, myMap.length, myMap[0].length);
         view.addKeyListener(new KeyListener() {
             @Override
@@ -18,21 +19,21 @@ public class Main {
             }
             @Override
             public void keyPressed(KeyEvent e) {
-                if( e.getKeyCode() == 37 ) {
-                    System.out.println( "왼쪽 누름");
-                    int idx = 3;
-                }
-                if( e.getKeyCode() == 38 ) {
-                    System.out.println( "위 누름");
-                    int idx = 2;
-                }
-                if( e.getKeyCode() == 39 ) {
-                    System.out.println( "오른쪽 누름");
-                    int idx = 1;
-                }
-                if( e.getKeyCode() == 40 ) {
-                    System.out.println( "아래 누름");
-                    int idx = 0;
+                int temp_X = player.getX();
+                int temp_Y = player.getY();
+
+
+                int idx = 0;
+                if( e.getKeyCode() == 37 ) idx = 0;
+                if( e.getKeyCode() == 38 ) idx = 2;
+                if( e.getKeyCode() == 39 ) idx = 1;
+                if( e.getKeyCode() == 40 ) idx = 3;
+                view.panels[temp_X][temp_Y].setBackground(Color.WHITE);
+                player.changePos(idx);
+                view.panels[player.getX()][player.getY()].setBackground(Color.BLUE);
+                if(myMap[player.getX()][player.getY()]==2){
+
+                    System.out.println("탈출에 성공했습니다. 횟수 : " + player.getCnt());
                 }
             }
             @Override
