@@ -5,14 +5,20 @@ public class Player {
     private int y;
     private int cnt;
     private String name;
-    private final Observer observer;
-    static int[][] map;
-    public Player(String playerName, int[][] map) {
+    private Observer observer;
+    private int[][] map;
+    public Player(String playerName) {
         this.x = 0;
         this.y = 1;
         this.cnt = 0;
         this.name = playerName;
         this.observer = new MoveObserver(this);
+    }
+
+    public void initPlayer(int [][] map){
+        this.x = 0;
+        this.y = 1;
+        this.cnt = 0;
         this.map = map;
     }
 
@@ -57,8 +63,4 @@ public class Player {
     }
 
     public int[][] getMap() { return map;}
-
-    public void getParams(){    //test
-        System.out.println("X : " + x + ", Y : " + y + ", Count : " + cnt);
-    }
 }

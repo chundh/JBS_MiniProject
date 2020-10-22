@@ -17,7 +17,7 @@ public class MoveObserver extends Observer{
                     break;
                 player.setY(player.getY() - 1);
                 player.setCnt(player.getCnt() + 1);
-                System.out.println("왼쪽으로 이동 했습니다.");
+//                System.out.println("왼쪽으로 이동 했습니다.");
                 break;
             case 1:     // 오른쪽
                 y += 1;
@@ -25,7 +25,7 @@ public class MoveObserver extends Observer{
                     break;
                 player.setY(player.getY() + 1);
                 player.setCnt(player.getCnt() + 1);
-                System.out.println("오른쪽으로 이동 했습니다.");
+//                System.out.println("오른쪽으로 이동 했습니다.");
                 break;
             case 2:     // 위쪽
                 x -= 1;
@@ -33,7 +33,7 @@ public class MoveObserver extends Observer{
                     break;
                 player.setX(player.getX() - 1);
                 player.setCnt(player.getCnt() + 1);
-                System.out.println("위쪽으로 이동 했습니다.");
+//                System.out.println("위쪽으로 이동 했습니다.");
                 break;
             case 3:     // 아래쪽
                 x += 1;
@@ -41,7 +41,7 @@ public class MoveObserver extends Observer{
                     break;
                 player.setX(player.getX() + 1);
                 player.setCnt(player.getCnt() + 1);
-                System.out.println("아래쪽으로 이동 했습니다.");
+//                System.out.println("아래쪽으로 이동 했습니다.");
                 break;
         }
     }
