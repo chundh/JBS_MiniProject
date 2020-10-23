@@ -2,7 +2,7 @@
 
 ## 구현 순서
 - 랜덤 미로 생성
-- JFrame을 활용해 GUI로 미로 표현
+- JFrame을 활용해 미로 표현
 - Observer Pattern을 활용해 플레이어의 입력 처리
 - 추가 구현
   * Thread 이용해서 시간 check
@@ -18,7 +18,7 @@
 - 출발점 : `0,1`
 - 도착점 : `map.length-1, map[0].length-2;`
 
-### JFrame을 활용해 GUI로 미로 표현
+### JFrame을 활용해 미로 표현
 - int[][] map에 들어있는 데이터를 활용하여 0은 벽, 1은 경로로 판단
 - 벽은 Black, 경로는 White로 처리
 - 도착지는 Red, 현재 플레이어의 위치는 Blue, 아이템은 Yellow로 처리
