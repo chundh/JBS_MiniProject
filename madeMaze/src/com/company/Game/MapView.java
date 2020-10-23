@@ -5,10 +5,11 @@ import java.awt.*;
 
 public class MapView extends JFrame {
     public JPanel[][] panels;
+    private JFrame infoTxt;
     private Maze maze;
     public MapView(int[][] map, int row, int col) {
         maze = new Maze(map);
-        panels = new JPanel[maze.getRow()][maze.getCol()];
+        panels = new JPanel[maze.getRow() + 1][maze.getCol() + 1];
         this.drawView();
 
     }
@@ -20,6 +21,7 @@ public class MapView extends JFrame {
         this.setSize(maze.getCol()*30, maze.getRow()*30);
         this.setLayout(new FlowLayout());
         this.drawMaze(maze.getRow(), maze.getCol());
+//        infoTxt = new InfoTxt();
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -37,9 +39,11 @@ public class MapView extends JFrame {
                     color = Color.RED;
                 else if(maze.getMap()[i][j] == 3)
                     color = Color.BLUE;
+                else if(maze.getMap()[i][j] == 5)
+                    color = Color.YELLOW;
                 JPanel block = new JPanel();
                 block.setBackground(color);
-                if(j%2==0){
+                if(j % 2 == 0){
                     block.setSize(block.getWidth()/2, block.getHeight());
                 }
                 panels[i][j] = block;
