@@ -1,5 +1,6 @@
 package com.company.map;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -11,19 +12,17 @@ public class map {
     private final int[] dy = {-1, 0, 1, 0};
     private final int[] dx2 = {0, -1, 0, 1};
     private final int[] dy2 = {-1, 0, 1, 0};
+
+    public ArrayList<point> getItemZone() {
+        return itemZone;
+    }
+
+    private ArrayList<point> itemZone = new ArrayList<>();
     private int n = 0;
     private int m = 0;
     private int minCnt = 0;
     private int cntLimit = 0;
-    private class point{
-        int x;
-        int y;
 
-        public point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
     public map(int n, int m){
         this.n = n;
         this.m = m;
@@ -54,12 +53,22 @@ public class map {
 
         while(!queue.isEmpty()){
             point p = queue.poll();
+            int nCnt = 0;
 
             check2[p.x][p.y] = true;
+
 
             for(int i = 0; i < 4; i++){
                 int tmp_x = p.x + dx[i];
                 int tmp_y = p.y + dy[i];
+
+                // 아이템 생성 할 수 있는 위치 List
+                if(map[tmp_x][tmp_y] == 0){
+                    nCnt++;
+                    if(nCnt >= 3){
+                        itemZone.add(new point(p.x, p.y));
+                    }
+                }
 
                 if(!(check2[tmp_x][tmp_y]) && map[tmp_x][tmp_y] == 1){
                     queue.add(new point(tmp_x, tmp_y));
@@ -111,6 +120,14 @@ public class map {
             }
         }
         return true;
+    }
+
+    public void setCntLimit(int cntLimit) {
+        this.cntLimit = cntLimit;
+    }
+
+    public int getMinCnt() {
+        return minCnt;
     }
 
     public int getCntLimit(){
